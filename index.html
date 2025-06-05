@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure login page">
+    <link rel="stylesheet" href="style.css">
+    <!-- Added Boxicons for proper icon rendering -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Secure Login Portal</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form id="loginForm" action="/auth" method="POST">
+            <h1>Account Login</h1>
+            
+            <div class="input-box">
+                <label for="username" class="sr-only">Username</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    placeholder="Username" 
+                    aria-label="Username"
+                    required
+                    autocomplete="username">
+                <i class='bx bxs-user'></i>
+            </div>
+            
+            <div class="input-box">
+                <label for="password" class="sr-only">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Password" 
+                    aria-label="Password"
+                    required
+                    autocomplete="current-password">
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox" name="remember" aria-label="Remember me">
+                    Remember me
+                </label>
+                <a href="#" aria-label="Forgot password">Forgot Password?</a>
+            </div>
+            
+            <button type="submit" class="btn" aria-label="Login">
+                Login
+            </button>
+            
+            <div class="login-signup">
+                <p>Don't have an account? <a href="signup.html" aria-label="Sign up">Sign up</a></p>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        // Basic form validation
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            const password = document.getElementById('password').value;
+            if (password.length < 8) {
+                e.preventDefault();
+                alert('Password must be at least 8 characters');
+            }
+        });
+    </script>
+</body>
+</html>
